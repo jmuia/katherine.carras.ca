@@ -31,7 +31,10 @@ gulp.task('html', function() {
 
 gulp.task('uncss', ['css', 'js', 'html'], function() {
     return gulp.src('./build/css/*.css')
-        .pipe( uncss({ html: ['./build/*.html'] }) )
+        .pipe( uncss({
+            html: ['./build/*.html'],
+            ignore: ['.bold', '.bold a', '.active']
+        }) )
         .pipe( gulp.dest('./build/css') )
 });
 
