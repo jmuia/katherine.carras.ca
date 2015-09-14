@@ -1,0 +1,189 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.underline {
+    text-decoration: underline;
+}
+
+.bold, .bold a { font-weight: 400; }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    max-width: 768px;
+    width: 80%;
+    margin: 0 auto;
+    align-items: stretch;
+    line-height: 1.4;
+}
+
+.kc-icon {
+    margin: 0 auto;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 30px;
+    box-sizing: content-box;
+}
+
+.menu {
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+    padding: 8px 0;
+    font-size: 90%;
+    position: relative;
+}
+
+.menu .menu-mobile {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.menu .menu-desktop {
+    display: none;
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.menu .menu-bullet {
+    padding: 0 12px;
+}
+
+.menu .menu-dropdown {
+    position: absolute;
+    top: 34px;
+    width: 100%;
+    background-color: #424242;
+    z-index: 1;
+}
+
+.menu a.menu-dropdown-item {
+    display: block;
+    margin: 0 auto;
+    color: #FFF;
+    width: 80%;
+    padding: 10px 0;
+    border-bottom: 1px solid #FFF;
+}
+
+.menu a.menu-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+main {
+    flex: 1;
+    flex-grow: 1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+}
+
+.hidden {
+    display: none;
+}
+
+.item {
+    display: block;
+    padding-bottom: 24px;
+}
+
+.title {
+    padding: 24px 0;
+    font-size: 140%;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 20px;
+    padding: 24px 0;
+    flex-wrap: wrap;
+}
+
+footer .social-item {
+    background-image: url('http://placehold.it/16x16');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 0 12px 0 20px;
+    margin-bottom: 12px;
+    font-size: 90%;
+}
+
+div[data-page="about"] .about-content {
+    padding-bottom: 24px;
+}
+
+div[data-page="about"] .about-content .about-desc {
+    text-align: justify;
+}
+
+div[data-page="about"] .about-content .about-title {
+    font-size: 120%;
+    padding-bottom: 24px;
+}
+
+
+@media (min-width: 640px) {
+    .menu .menu-desktop { display: flex; }
+    .menu .menu-mobile { display: none; }
+    .menu .menu-dropdown { display: none; }
+
+    div[data-page="about"] .row {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    div[data-page="about"] .about-content {
+        flex: 1;
+        padding-left: 24px;
+    }
+
+    div[data-page="about"] .about-content .about-title {
+        text-align: left;
+        padding-top: 0;
+    }
+
+    div[data-page="about"] .about-content .about-desc {
+        text-align: left;
+    }
+
+    .item {
+        width: inherit;
+    }
+}
