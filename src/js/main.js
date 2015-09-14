@@ -20,8 +20,10 @@ function main () {
 
         if (name === currentPageName) {
             removeClass(page, 'hidden');
+            addClass(page, 'active');
         } else {
             addClass(page, 'hidden');
+            removeClass(page, 'active');
         }
 
         pages[name] = page;
@@ -56,9 +58,11 @@ function main () {
     function transitionPage(oldPage, newPage) {
         addClass(pages[oldPage], 'hidden');
         removeClass(titles[oldPage], 'bold');
+        removeClass(pages[oldPage], 'active');
 
         removeClass(pages[newPage], 'hidden');
         addClass(titles[newPage], 'bold');
+        addClass(pages[newPage], 'active');
 
         currentPageName = newPage;
     }

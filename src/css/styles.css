@@ -104,10 +104,6 @@ main {
     align-content: flex-start;
 }
 
-.hidden {
-    display: none;
-}
-
 .item {
     display: block;
     padding-bottom: 24px;
@@ -156,6 +152,20 @@ div[data-page="about"] .about-content .about-desc {
 div[data-page="about"] .about-content .about-title {
     font-size: 120%;
     padding-bottom: 24px;
+}
+
+.active {
+    display: block;
+    animation: fadeIn 3s;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 
