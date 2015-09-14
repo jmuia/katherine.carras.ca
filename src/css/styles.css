@@ -78,6 +78,10 @@ body {
     z-index: 1;
 }
 
+.menu .menu-dropdown.menu-dropdown-open {
+    animation: fadeInAndDown 0.5s;
+}
+
 .menu a.menu-dropdown-item {
     display: block;
     margin: 0 auto;
@@ -168,6 +172,13 @@ div[data-page="about"] .about-content .about-title {
     100% { opacity: 1; }
 }
 
+@keyframes fadeInAndDown {
+    0%   { 
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    100% { opacity: 1; }
+}
 
 @media (min-width: 640px) {
     .menu .menu-desktop { display: flex; }

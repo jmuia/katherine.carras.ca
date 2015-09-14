@@ -8,6 +8,7 @@ function main () {
     forEach(dropdownNodeList, function (item) {
         item.addEventListener('click', function (e) {
             addClass($menuDropdown, 'hidden');
+            removeClass($menuDropdown, 'menu-dropdown-open');
         });
     });
     
@@ -46,6 +47,7 @@ function main () {
     $menu.addEventListener('click', function (e) {
         e.preventDefault();
         toggleClass($menuDropdown, 'hidden');
+        toggleClass($menuDropdown, 'menu-dropdown-open');
     }, false);
 
 
