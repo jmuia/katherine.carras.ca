@@ -136,13 +136,19 @@ footer {
 }
 
 footer .social-item {
-    background-image: url('http://placehold.it/16x16');
+    background-size: 16px;
     background-position: left center;
     background-repeat: no-repeat;
-    padding: 0 12px 0 20px;
+    padding: 0 0 0 24px;
     margin-bottom: 12px;
     font-size: 90%;
 }
+
+footer .social-item.dribbble { background-image: url('/img/dribble-icon.png'); }
+footer .social-item.instagram { background-image: url('/img/instagram-icon.png'); }
+footer .social-item.twitter { background-image: url('/img/twitter-icon.png'); }
+footer .social-item.medium { background-image: url('/img/medium-icon.png'); }
+footer .social-item.fhpx { background-image: url('/img/500px-icon.png'); }
 
 div[data-page="about"] .about-content {
     padding-bottom: 24px;

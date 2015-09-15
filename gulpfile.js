@@ -6,12 +6,17 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
-    base64Images = require('gulp-base64');;
+    base64 = require('gulp-css-base64');
 
 
 gulp.task('css', function() {
+    var base64Opts = {
+        baseDir: './src',
+        /* note that by default only
+           32kb images are encoded   */
+    };
     return gulp.src('./src/css/*.css')
-        .pipe( base64Images() )
+        .pipe( base64(base64Opts) )
         .pipe( autoprefixer() )
         .pipe( minifyCss() )
         .pipe( gulp.dest('./build/css') )
@@ -28,8 +33,12 @@ gulp.task('html', function() {
         .pipe( gulp.dest('./build') )
 });
 
+gulp.task('img', function() {
+    return gulp.src('./src/img/*.*')
+        .pipe( gulp.dest('./dist/img') )
+});
 
-gulp.task('uncss', ['css', 'js', 'html'], function() {
+gulp.task('uncss', ['css', 'js', 'html', 'img'], function() {
     return gulp.src('./build/css/*.css')
         .pipe( uncss({
             html: ['./build/*.html'],
