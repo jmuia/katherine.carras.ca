@@ -36,6 +36,7 @@ gulp.task('html', function() {
 gulp.task('img', function() {
     return gulp.src('./src/img/*.*')
         .pipe( gulp.dest('./dist/img') )
+        .pipe( gulp.dest('./build/img') )
 });
 
 gulp.task('uncss', ['css', 'js', 'html', 'img'], function() {

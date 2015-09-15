@@ -5,6 +5,7 @@
     font-family: 'Roboto', 'Helvetica', sans-serif;
     font-weight: 100;
     text-align: center;
+    color: #444;
 }
 
 html {
@@ -78,7 +79,7 @@ body {
     position: absolute;
     top: 34px;
     width: 100%;
-    background-color: #424242;
+    background-color: #444;
     z-index: 1;
 }
 
@@ -108,13 +109,16 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-content: flex-start;
+    align-items: flex-start;
 }
 
 .item {
     display: block;
     padding-bottom: 24px;
+    height: auto;
+    max-width: 100%;
 }
 
 .title {
@@ -209,7 +213,11 @@ div[data-page="about"] .about-content .about-title {
         text-align: left;
     }
 
-    .item {
-        width: inherit;
-    }
+    div[data-page="about"] .item { max-width: 33%; }
+
+    div[data-page="work"] a { max-width: 50%; }
+    div[data-page="work"] a:first-child { padding-right: 12px; }
+    div[data-page="work"] a:last-child { padding-left: 12px; }
+
+    .row { justify-content: center; }
 }
