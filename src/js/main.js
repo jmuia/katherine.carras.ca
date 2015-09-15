@@ -6,9 +6,15 @@ function main () {
 
     var dropdownNodeList = $menuDropdown.querySelectorAll('a');
     forEach(dropdownNodeList, function (item) {
-        item.addEventListener('click', function (e) {
-            addClass($menuDropdown, 'hidden');
-            removeClass($menuDropdown, 'menu-dropdown-open');
+        item.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+            window.location = item.getAttribute('href');
+            $menu.blur();
+        });
+        item.addEventListener('touchstart', function (e) {
+            e.preventDefault();
+            window.location = item.getAttribute('href');
+            $menu.blur();
         });
     });
     
@@ -50,6 +56,11 @@ function main () {
         toggleClass($menuDropdown, 'menu-dropdown-open');
     }, false);
 
+    $menu.addEventListener('blur', function (e) {
+        e.preventDefault();
+        toggleClass($menuDropdown, 'hidden');
+        toggleClass($menuDropdown, 'menu-dropdown-open');
+    }, false);
 
     window.addEventListener('hashchange', function (e) {
         e.preventDefault();

@@ -53,8 +53,12 @@ body {
 }
 
 .menu .menu-mobile {
-    cursor: pointer;
-    cursor: hand;
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu .menu-desktop {
@@ -82,7 +86,7 @@ body {
     animation: fadeInAndDown 0.5s;
 }
 
-.menu a.menu-dropdown-item {
+.menu .menu-dropdown-item {
     display: block;
     margin: 0 auto;
     color: #FFF;
@@ -91,7 +95,7 @@ body {
     border-bottom: 1px solid #FFF;
 }
 
-.menu a.menu-dropdown-item:last-child {
+.menu .menu-dropdown a:last-child .menu-dropdown-item {
     border-bottom: none;
 }
 
