@@ -36,13 +36,14 @@ body {
     line-height: 1.4;
 }
 
+.kc-icon-wrapper {
+    padding: 30px
+}
+
 .kc-icon {
-    margin: 0 auto;
-    display: block;
+    vertical-align: middle;
     width: 60px;
     height: 60px;
-    padding: 30px;
-    box-sizing: content-box;
 }
 
 .menu {
