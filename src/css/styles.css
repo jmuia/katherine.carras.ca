@@ -223,9 +223,9 @@ div[data-page="about"] .about-content .about-title {
         text-align: left;
     }
 
-    div[data-page="about"] .item { max-width: 33%; }
+    div[data-page="about"] .item { max-width: 253px; }
 
-    div[data-page="work"] a { max-width: 50%; }
+    div[data-page="work"] a { max-width: 256px; }
     div[data-page="work"] a:first-child { padding-right: 12px; }
     div[data-page="work"] a:last-child { padding-left: 12px; }
 
