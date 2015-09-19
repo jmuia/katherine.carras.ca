@@ -48,7 +48,6 @@ body {
 .menu {
     border-top: 1px solid #777;
     border-bottom: 1px solid #777;
-    padding: 8px 0;
     font-size: 90%;
     position: relative;
 }
@@ -59,7 +58,7 @@ body {
     outline: none;
     border: none;
     margin: 0;
-    padding: 0;
+    padding: 8px 0;
 }
 
 .menu .menu-desktop {
@@ -71,8 +70,13 @@ body {
     align-content: flex-start;
 }
 
-.menu .menu-bullet {
-    padding: 0 12px;
+.menu .menu-desktop div a {
+    display: block;
+    padding: 8px 12px;
+}
+
+.menu .menu-desktop .menu-bullet {
+    padding: 8px 0;
 }
 
 .menu .menu-dropdown {
