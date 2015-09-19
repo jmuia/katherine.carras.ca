@@ -1,22 +1,36 @@
-document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("DOMContentLoaded", main, false);
+
+// matches polyfill
+this.Element && function(ElementPrototype) {
+    ElementPrototype.matches = ElementPrototype.matches ||
+    ElementPrototype.matchesSelector ||
+    ElementPrototype.webkitMatchesSelector ||
+    ElementPrototype.msMatchesSelector ||
+    function(selector) {
+        var node = this, nodes = (node.parentNode || node.document).querySelectorAll(selector), i = -1;
+        while (nodes[++i] && nodes[i] != node);
+        return !!nodes[i];
+    }
+}(Element.prototype);
+
+// closest polyfill
+this.Element && function(ElementPrototype) {
+    ElementPrototype.closest = ElementPrototype.closest ||
+    function(selector) {
+        var el = this;
+        while (el.matches && !el.matches(selector)) el = el.parentNode;
+        return el.matches ? el : null;
+    }
+}(Element.prototype);
+
 
 function main () {
+    if ('addEventListener' in document) {
+        FastClick.attach(document.body);
+    }
+
     var $menu = document.querySelector('.menu .menu-mobile');
     var $menuDropdown = document.querySelector('.menu .menu-dropdown');
-
-    var dropdownNodeList = $menuDropdown.querySelectorAll('a');
-    forEach(dropdownNodeList, function (item) {
-        item.addEventListener('mousedown', function (e) {
-            e.preventDefault();
-            window.location = item.getAttribute('href');
-            $menu.blur();
-        });
-        item.addEventListener('touchstart', function (e) {
-            e.preventDefault();
-            window.location = item.getAttribute('href');
-            $menu.blur();
-        });
-    });
     
     var currentPageName = window.location.hash.substring(1) || 'work';
 
@@ -56,16 +70,16 @@ function main () {
         toggleClass($menuDropdown, 'menu-dropdown-open');
     }, false);
 
-    $menu.addEventListener('blur', function (e) {
-        e.preventDefault();
-        toggleClass($menuDropdown, 'hidden');
-        toggleClass($menuDropdown, 'menu-dropdown-open');
-    }, false);
-
     window.addEventListener('hashchange', function (e) {
         e.preventDefault();
         var hash = window.location.hash.substring(1) || 'work';
         transitionPage(currentPageName, hash);
+    }, false);
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.menu-mobile')) {
+            hideMenuDropdown();
+        }
     }, false);
 
     function transitionPage(oldPage, newPage) {
@@ -78,6 +92,11 @@ function main () {
         addClass(pages[newPage], 'active');
 
         currentPageName = newPage;
+    }
+
+    function hideMenuDropdown() {
+        addClass($menuDropdown, 'hidden');
+        removeClass($menuDropdown, 'menu-dropdown-open');
     }
 }
 
