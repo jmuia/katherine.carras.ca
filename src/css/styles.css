@@ -118,7 +118,12 @@ main {
     display: block;
     padding-bottom: 24px;
     height: auto;
+    min-height: 145px;
     max-width: 100%;
+}
+
+div[data-page="work"] a { 
+    min-width: 50%;
 }
 
 .title {
