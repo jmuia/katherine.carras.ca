@@ -83,13 +83,23 @@ function main () {
     }, false);
 
     function transitionPage(oldPage, newPage) {
-        addClass(pages[oldPage], 'hidden');
-        removeClass(titles[oldPage], 'bold');
-        removeClass(pages[oldPage], 'active');
+        if (pages[oldPage]) {
+            addClass(pages[oldPage], 'hidden');
+            removeClass(pages[oldPage], 'active');
+        }
 
-        removeClass(pages[newPage], 'hidden');
-        addClass(titles[newPage], 'bold');
-        addClass(pages[newPage], 'active');
+        if (titles[oldPage]) {
+            removeClass(titles[oldPage], 'bold');
+        }
+
+        if (pages[newPage]) {
+            removeClass(pages[newPage], 'hidden');
+            addClass(pages[newPage], 'active');
+        }
+
+        if (titles[newPage]) {
+            addClass(titles[newPage], 'bold');
+        }
 
         currentPageName = newPage;
     }
