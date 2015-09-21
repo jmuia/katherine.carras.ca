@@ -158,11 +158,11 @@ footer .social-item {
     font-size: 90%;
 }
 
-footer .social-item.dribbble { background-image: url('/img/dribbble-icon.png'); }
-footer .social-item.instagram { background-image: url('/img/instagram-icon.png'); }
-footer .social-item.twitter { background-image: url('/img/twitter-icon.png'); }
-footer .social-item.medium { background-image: url('/img/medium-icon.png'); }
-footer .social-item.fhpx { background-image: url('/img/500px-icon.png'); }
+footer .social-item.dribbble { background-image: url('/src/img/dribbble-icon.png'); }
+footer .social-item.instagram { background-image: url('/src/img/instagram-icon.png'); }
+footer .social-item.twitter { background-image: url('/src/img/twitter-icon.png'); }
+footer .social-item.medium { background-image: url('/src/img/medium-icon.png'); }
+footer .social-item.fhpx { background-image: url('/src/img/500px-icon.png'); }
 
 div[data-page="about"] .about-content {
     padding-bottom: 24px;
